@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Idol } from '../idol';
+import { IDOLS } from '../mock-idols';
 
 @Component({
   selector: 'app-idols',
@@ -8,14 +9,15 @@ import { Idol } from '../idol';
 })
 export class IdolsComponent implements OnInit {
      
-  idol: Idol = {
-    id: 1,
-    name: 'Chris Hadfield'
-  };
+  idols = IDOLS;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+  selectedIdol?: Idol;
+  onSelect(idol: Idol): void {
+    this.selectedIdol = idol;
+  }
 }

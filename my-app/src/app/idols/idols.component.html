@@ -1,6 +1,17 @@
-<h2>{{idol.name | uppercase}} Details</h2>
-<div><span>id: </span>{{idol.id}}</div>
+<h2>My Idols</h2>
+<ul class="idols">
+  <li *ngFor="let idol of idols" [class.selected]="idol === selectedIdol" 
+  (click)="onSelect(idol)"  >
+    <span class="badge">{{idol.id}}</span> {{idol.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedIdol">
+<h2>{{selectedIdol.name | uppercase}} Details</h2>
+<div><span>id: </span>{{selectedIdol.id}}</div>
 <div>
-  <label for="name">Idol name: </label>
-  <input id="name" [(ngModel)]="idol.name" placeholder="name">
+  <label for="idol-name">Idol name: </label>
+  <input id="idol-name" [(ngModel)]="selectedIdol.name" placeholder="name">
+</div>
+
 </div>
