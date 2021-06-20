@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IdolsComponent } from './idols/idols.component';
 
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule } from '@angular/forms';
+import { IdolDetailComponent } from './idol-detail/idol-detail.component'; // <-- NgModel lives here
 
 @NgModule({
   declarations: [
     AppComponent,
-    IdolsComponent
+    IdolsComponent,
+    IdolDetailComponent
   ],
   imports: [
     BrowserModule,
