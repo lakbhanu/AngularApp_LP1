@@ -1,9 +1,9 @@
 <h2>My Idols</h2>
 <ul class="idols">
-  <li *ngFor="let idol of idols" [class.selected]="idol === selectedIdol" 
-  (click)="onSelect(idol)"  >
+  <li *ngFor="let idol of idols">
+    <a routerLink="/detail/{{idol.id}}">
     <span class="badge">{{idol.id}}</span> {{idol.name}}
+  </a>
   </li>
 </ul>
 
-<app-idol-detail [idol]="selectedIdol"></app-idol-detail>

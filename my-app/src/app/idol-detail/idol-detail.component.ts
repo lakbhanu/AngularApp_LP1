@@ -1,5 +1,8 @@
 import { Component, OnInit ,Input } from '@angular/core';
 import { Idol } from '../idol';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { IdolService } from '../idol.service';
 
 @Component({
   selector: 'app-idol-detail',
@@ -9,9 +12,23 @@ import { Idol } from '../idol';
 export class IdolDetailComponent implements OnInit {
   @Input() idol?: Idol;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private idolService: IdolService,
+    private location: Location) { }
 
   ngOnInit() {
+    this.getIdol();
+  }
+
+  getIdol(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.idolService.getIdol(id)
+      .subscribe(idol => this.idol = idol);
+  }
+  
+  goBack(): void {
+    this.location.back();
   }
 
 }

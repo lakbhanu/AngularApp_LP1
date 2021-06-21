@@ -7,14 +7,16 @@ import { IdolsComponent } from './idols/idols.component';
 
 import { FormsModule } from '@angular/forms';
 import { IdolDetailComponent } from './idol-detail/idol-detail.component';
-import { MessagesComponent } from './messages/messages.component'; // <-- NgModel lives here
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component'; // <-- NgModel lives here
 
 @NgModule({
   declarations: [
     AppComponent,
     IdolsComponent,
     IdolDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
