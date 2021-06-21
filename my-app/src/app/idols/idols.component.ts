@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Idol } from '../idol';
-import { IDOLS } from '../mock-idols';
+import { IdolService } from '../idol.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-idols',
@@ -8,16 +9,25 @@ import { IDOLS } from '../mock-idols';
   styleUrls: ['./idols.component.css']
 })
 export class IdolsComponent implements OnInit {
-     
-  idols = IDOLS;
+  selectedIdol?: Idol;
 
-  constructor() { }
+  idols: Idol[] = [];
 
-  ngOnInit(): void {
+  constructor(private idolService: IdolService, 
+     private messageService: MessageService) { }
+
+  ngOnInit() {
+    this.getIdols();
   }
   
-  selectedIdol?: Idol;
   onSelect(idol: Idol): void {
     this.selectedIdol = idol;
+    this.messageService.add(`HeroesComponent: Selected idol id=${idol.id}`);
   }
-}
+
+  getIdols(): void {
+    this.idolService.getIdols()
+      .subscribe(idols => this.idols = idols);
+
+  }
+} 

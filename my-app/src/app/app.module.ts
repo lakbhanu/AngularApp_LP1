@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { IdolsComponent } from './idols/idols.component';
 
 import { FormsModule } from '@angular/forms';
-import { IdolDetailComponent } from './idol-detail/idol-detail.component'; // <-- NgModel lives here
+import { IdolDetailComponent } from './idol-detail/idol-detail.component';
+import { MessagesComponent } from './messages/messages.component'; // <-- NgModel lives here
 
 @NgModule({
   declarations: [
     AppComponent,
     IdolsComponent,
-    IdolDetailComponent
+    IdolDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
