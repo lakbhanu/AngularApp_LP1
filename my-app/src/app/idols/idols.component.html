@@ -6,4 +6,12 @@
   </a>
   </li>
 </ul>
+<div>
+  <label for="new-idol">Idol name: </label>
+  <input id="new-idol" #idolName />
 
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(idolName.value); idolName.value=''">
+    Add idol
+  </button>
+</div>
